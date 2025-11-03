@@ -1,0 +1,89 @@
+[
+  {
+    "id": "h1",
+    "name": "Apollo Hospitals",
+    "city": "Bangalore",
+    "beds": 250,
+    "departments": {
+      "Cardiology": [
+        "Dr. Rajesh Kumar",
+        "Dr. Priya Nair"
+      ],
+      "Neurology": [
+        "Dr. Sandeep Rao"
+      ]
+    },
+    "image": "img/apollo_hospital.jpg",
+    "address": "Bannerghatta Rd, opposite Krishnaraju Layout, Panduranga Nagar, Bengaluru 560076",
+    "beds_available": 1
+  },
+  {
+    "id": "h2",
+    "name": "Fortis Hospital",
+    "city": "Bangalore",
+    "beds": 300,
+    "departments": {
+      "Orthopedics": [
+        "Dr. Kiran Patil",
+        "Dr. Leena Shah"
+      ],
+      "Pediatrics": [
+        "Dr. Ramesh Iyer"
+      ]
+    },
+    "image": "img/fortis_hospital.jpg",
+    "address": "Bannerghatta Road opposite IIM, Sahyadri Layout, Panduranga Nagara Bengaluru, 560076",
+    "beds_available": 7
+  },
+  {
+    "id": "h3",
+    "name": "Manipal Hospital",
+    "city": "Bangalore",
+    "beds": 400,
+    "departments": {
+      "Dermatology": [
+        "Dr. Nisha Mehta"
+      ],
+      "General Surgery": [
+        "Dr. Anand Pillai"
+      ]
+    },
+    "image": "img/manipal_hospital.jpg",
+    "address": "Kirloskar Business Park, Bellary Rd, Bengaluru-560024",
+    "beds_available": 1
+  },
+  {
+    "id": "h4",
+    "name": "Columbia Asia Hospital",
+    "city": "Bangalore",
+    "beds": 200,
+    "departments": {
+      "ENT": [
+        "Dr. Suresh Bhat"
+      ],
+      "Cardiology": [
+        "Dr. Neha Verma"
+      ]
+    },
+    "image": "img/columbia_asia_hospital.jpg",
+    "address": "26/4, BRIGADE GATEWAY, beside Metro, Yeswanthpur, Bengaluru, Karnataka 560055",
+    "beds_available": 4
+  },
+  {
+    "id": "h5",
+    "name": "Aster CMI Hospital",
+    "city": "Bangalore",
+    "beds": 350,
+    "departments": {
+      "Oncology": [
+        "Dr. Kavitha Menon"
+      ],
+      "Radiology": [
+        "Dr. Amit Singh"
+      ]
+    },
+    "image": "img/aster_cmi.jpg",
+    "address": "43/2, NH 7, New Airport Road, Sahakar Nagar, Sanjeevini Nagar, Bengaluru, Karnataka 560092",
+    "beds_available": 4
+  }
+]

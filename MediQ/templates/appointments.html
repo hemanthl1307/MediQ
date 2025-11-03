@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"/><title>My Appointments</title><link rel="stylesheet" href="/static/css/style.css"/></head><body>
+  <header class="header"><div class="container"><h1>Welcome to MediQ</h1><p>Emergency &amp; Affordable Care</p></div></header>
+  <main class="container" style="padding-top:30px">
+    <h2>My Appointments</h2>
+    {% if appts %}
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+        {% for a in appts %}
+          <div class="appt-card">
+            <div>
+              <strong>{{ a.hospital_name }}</strong><div class="small muted">{{ a.doctor }}</div>
+            </div>
+            <div style="text-align:right">
+              <div class="small muted">{{ a.date }} · {{ a.time }}</div>
+              <div style="font-weight:700">₹ {{ a.price }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">No appointments yet.</p>
+    {% endif %}
+  </main>
+</body></html>

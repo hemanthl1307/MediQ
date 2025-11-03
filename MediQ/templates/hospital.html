@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ hospital.name }}</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <header class="header"><div class="container"><h1>Welcome to MediQ</h1><p>Emergency &amp; Affordable Care</p></div></header>
+  <main class="container" style="padding-top:20px">
+    <a href="/" class="back">← Back to Search</a>
+    <div class="detail-card">
+      <img src="/static/{{ hospital.image }}" alt="" style="width:100%;height:300px;object-fit:cover;border-radius:10px;">
+      <div style="padding:18px">
+        <h2 style="margin:0">{{ hospital.name }}</h2>
+        <p class="muted">{{ hospital.address or hospital.city }}</p>
+        <div class="muted">ICU Beds Available: {{ hospital.beds_available }}</div>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:10px">
+          <div>⭐ <strong>{{ hospital.rating }}</strong></div>
+          <div>🛏 <strong>{{ hospital.beds_available }}</strong> beds</div>
+          <div>👨‍⚕️ <strong>{{ hospital.get('doctors')|length if hospital.get('doctors') else 3 }}</strong> doctors</div>
+        </div>
+
+        <h3 style="margin-top:16px">Available Treatments</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+          {% for t in hospital.treatments %}
+            <span class="pill">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px">Hospital Departments</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px">
+      {% for d in hospital.get('departments', hospital.get('treatments', [])) %}
+      <div class="dept-card">
+        <h4 style="margin:0">{{ d }}</h4>
+        <p class="muted small">Description for {{ d }}</p>
+        <div style="margin-top:12px"><a class="btn-pill" href="/hospital/{{ hospital.id }}">View Doctors</a></div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h3 style="margin-top:24px">Doctors</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px">
+      {% for doc in hospital.doctors %}
+      <div class="doctor-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="flex:1">
+            <strong>{{ doc.name }}</strong>
+            <div class="small muted">{{ doc.department }} · {{ doc.experience }} years</div>
+            <div style="margin-top:8px">
+              {% if doc.available %}
+                <span class="available">Available</span>
+              {% else %}
+                <span class="unavailable">Not Available</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          {% if doc.available %}
+            <a class="btn-pill" href="/book/{{ hospital.id }}/{{ doc.name }}">Book Appointment</a>
+          {% else %}
+            <button class="btn-pill" disabled style="opacity:0.6">Unavailable</button>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </main>
+  <footer style="text-align:center;padding:18px 0;color:#94a3b8">© MediQ</footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>Payment</title><link rel="stylesheet" href="/static/css/style.css"/></head>
+<body>
+  <header class="header"><div class="container"><h1>Welcome to MediQ</h1><p>Emergency &amp; Affordable Care</p></div></header>
+  <main class="container" style="display:flex;justify-content:center;padding-top:30px">
+    <div class="booking-card">
+      <h2 style="text-align:center">Payment</h2>
+      <form method="post" style="margin-top:14px">
+        <label class="small muted">Card number</label><br>
+        <input type="text" name="card" required/>
+        <label class="small muted">Expiry</label><br><input type="text" name="expiry" placeholder="MM/YY" required/>
+        <label class="small muted">CVV</label><br><input type="password" name="cvv" required/>
+        <div style="margin-top:12px;text-align:center">
+          <button class="btn-pill" type="submit">Pay Now</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer style="text-align:center;padding:18px 0;color:#94a3b8">© MediQ</footer>
+</body>
+</html>

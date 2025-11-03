@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"/><title>Success</title><link rel="stylesheet" href="/static/css/style.css"/></head><body>
+  <header class="header"><div class="container"><h1>Welcome to MediQ</h1><p>Emergency &amp; Affordable Care</p></div></header>
+  <main class="container" style="padding-top:30px">
+    <div class="booking-card" style="text-align:center">
+      <h2>Payment Successful ✅</h2>
+      <p>Appointment ID: {{ appt.id }}</p>
+      <p>Hospital: {{ appt.hospital_name }}</p>
+      <p>Doctor: {{ appt.doctor }}</p>
+      <p>Date: {{ appt.date }} · Time: {{ appt.time }}</p>
+      <a class="btn-pill" href="/appointments">View My Appointments</a>
+    </div>
+  </main>
+</body></html>

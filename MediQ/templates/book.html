@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <header class="header"><div class="container"><h1>Welcome to MediQ</h1><p>Emergency &amp; Affordable Care</p></div></header>
+  <main class="container" style="display:flex;justify-content:center;padding-top:30px">
+    <div class="booking-card">
+      <h2 style="text-align:center">Book Appointment</h2>
+      <div style="background:#eef7ff;padding:12px;border-radius:8px;margin-top:10px">
+        <strong>{{ doctor }}</strong>
+        <div class="small muted">{{ hospital.name }}</div>
+      </div>
+
+      <form method="post" style="margin-top:14px">
+        <label class="small muted">Select Date</label>
+        <input type="date" name="date" required/>
+        <label class="small muted">Select Time</label>
+        <input type="time" name="time" required/>
+        <div style="margin-top:12px;padding:12px;background:#ecfdf5;border-radius:8px">
+          <div class="small muted">Consultation Fee:</div>
+          <div style="font-weight:700;font-size:18px">₹ {{ price }}</div>
+        </div>
+        <div style="margin-top:12px;text-align:center">
+          <button class="btn-pill" type="submit">Proceed to Payment</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer style="text-align:center;padding:18px 0;color:#94a3b8">© MediQ</footer>
+</body>
+</html>

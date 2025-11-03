@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>MediQ</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Welcome to MediQ</h1>
+      <p>Emergency &amp; Affordable Care</p>
+      <div class="search-row">
+        <form action="/search" method="get" style="display:flex;gap:10px;">
+          <input name="location" placeholder="Search hospitals, book appointments..." value="Bangalore"/>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 style="margin-top:18px;color:#06283D">Available Hospitals</h2>
+    <div style="margin-top:12px;color:#667085" class="small">{{ hospitals|length }} hospitals found</div>
+    <section style="margin-top:18px;">
+      {% for h in hospitals %}
+      <article class="card">
+        <div style="display:flex;gap:18px;align-items:center;">
+          <img src="/static/{{ h.image or 'img/h1.svg' }}" alt="" style="width:300px;height:160px;object-fit:cover;border-radius:10px;margin-right:18px"/>
+          <div style="flex:1">
+            <div class="title">{{ h.name }}</div>
+            <div class="meta">📍 {{ h.address or h.city }} &nbsp; · &nbsp; <span class="stars">⭐ {{ h.rating }}/5</span> &nbsp; · &nbsp; 🛏 {{ h.beds_available }} beds</div>
+            <p style="margin-top:8px;color:#334155">{{ h.get('departments')|join(', ') if h.get('departments') else '' }}</p>
+            <div class="actions">
+              <a class="btn-pill" href="/hospital/{{ h.id }}">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:18px 0;color:#94a3b8">© MediQ</footer>
+</body>
+</html>
+<style>
+.card {
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+a {
+  text-decoration: none !important;
+}
+</style>
