@@ -4,6 +4,7 @@ It provides real-time bed availability, doctor appointment booking  and complete
 Built for efficiency, scalability, and a seamless user experience.
 
 --FEATURES
+<br>
 1.Hospital information dashboard
 2.Real-time bed availability tracking
 3.Slot-based appointment scheduling
